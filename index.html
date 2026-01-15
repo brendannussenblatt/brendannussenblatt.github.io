@@ -1,13 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Brendan Nussenblatt | Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-<h1>Brendan Nussenblatt</h1>
-<p>Informatics student with a business mindset building user-focused digital products.</p>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">Brendan Nussenblatt</a>
+      <nav class="nav">
+        <a href="projects.html">Projects</a>
+        <a href="assets/Brendan_Nussenblatt_Resume.pdf">Resume</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Building user-focused digital products with a business mindset.</h1>
+      <p class="lead">
+        I’m an Informatics student who enjoys combining web development, systems thinking, and storytelling
+        to create clean, practical experiences. Here are a few projects I’m proud of.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn" href="projects.html">View Projects</a>
+        <a class="btn btn-ghost" href="#contact">Get in Touch</a>
+      </div>
+
+      <div class="hero-cards">
+        <article class="card">
+          <p class="eyebrow">Featured</p>
+          <h3>Journey (Capstone)</h3>
+          <p>Team-built product with real UX + data structure decisions.</p>
+        </article>
+        <article class="card">
+          <p class="eyebrow">Featured</p>
+          <h3>Spider-Man History Site</h3>
+          <p>Multi-page site focused on structure, visuals, and content.</p>
+        </article>
+        <article class="card">
+          <p class="eyebrow">Featured</p>
+          <h3>Arduino Tank Robot</h3>
+          <p>Hardware + code project with a clear, testable outcome.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>What I’m good at</h2>
+      <div class="pill-row">
+        <span class="pill">Web Development</span>
+        <span class="pill">UX & Information Design</span>
+        <span class="pill">Databases</span>
+        <span class="pill">Project Collaboration</span>
+        <span class="pill">Creative + Technical Storytelling</span>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <h2>Contact</h2>
+      <p class="muted">
+        Best way to reach me is email. I’m happy to share more details or walk through any project.
+      </p>
+
+      <div class="contact-links">
+        <a class="link" href="mailto:YOUR_EMAIL_HERE">YOUR_EMAIL_HERE</a>
+        <a class="link" href="https://github.com/brendannussenblatt" target="_blank" rel="noopener">GitHub</a>
+        <a class="link" href="https://www.linkedin.com/in/YOUR_LINKEDIN_HERE" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> Brendan Nussenblatt</p>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
