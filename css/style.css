@@ -545,4 +545,20 @@ p {
   opacity: 0.9;
 }
 
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+
+  /* THE IMPORTANT PART */
+  max-width: 1100px;
+  margin: 0 auto;          /* centers the grid */
+  padding: 0 24px;
+}
+
+.project-card {
+  background: rgba(255,255,255,0.04);
+  border-radius: 16px;
+  overflow: hidden;
+}
 
