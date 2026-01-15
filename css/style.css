@@ -521,3 +521,27 @@ p {
   color: rgba(255, 255, 255, 0.85);
 }
 
+
+.hero {
+  padding: 72px 0 28px;
+}
+
+.hero-inner {
+  max-width: 980px;     /* controls the H1 + subhead width */
+  margin: 0 auto;       /* centers the block */
+  padding: 0 24px;      /* nice mobile padding */
+}
+
+.hero h1 {
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.subhead {
+  max-width: 820px;     /* slightly narrower than the H1 for readability */
+  margin-top: 18px;
+  line-height: 1.6;
+  font-size: 18px;
+  opacity: 0.9;
+}
+
