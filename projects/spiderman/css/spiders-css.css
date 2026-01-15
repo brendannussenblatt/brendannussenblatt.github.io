@@ -1,0 +1,211 @@
+/* ========================= SPIDERS PAGE LAYOUT ========================= */
+
+/* main wrapper for this page */
+.spiders-main {
+    padding-block: 28px 40px;
+}
+
+.spiders-hero {
+    padding-block: 24px 18px;
+    margin-bottom: 20px;
+}
+
+/* snapshot chips under the hero */
+.spiders-snapshot {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+/* sections (Core Spiders + Spider-Verse) */
+.spider-section {
+    margin-block: 2.5rem 0;
+}
+
+.spider-section__header h2 {
+    margin: 0 0 0.35rem;
+    font-size: var(--t-1);
+}
+
+.spider-section__header p {
+    margin: 0 0 1.25rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+/* ========================= CORE SPIDERS (BIG CARDS) ========================= */
+
+.spider-grid {
+    display: grid;
+    gap: 1.25rem;
+}
+
+/* 1 col mobile, 2 col medium, 3 col large */
+@media (min-width: 640px) {
+    .spider-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1000px) {
+    .spider-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.spider-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.spider-card__media {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+}
+
+.spider-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.spider-card__body {
+    padding: 1rem 1.1rem 1.3rem;
+}
+
+.spider-card__tag {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin: 0 0 0.25rem;
+}
+
+.spider-card__name {
+    margin: 0 0 0.3rem;
+    font-size: 1rem;
+}
+
+.spider-card__era {
+    margin: 0 0 0.5rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+
+.spider-card__text {
+    margin: 0 0 0.6rem;
+    font-size: 0.9rem;
+    color: rgba(234, 241, 249, 0.92);
+}
+
+.spider-card__highlights {
+    margin: 0;
+    padding-left: 1.1rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+.spider-card__highlights li+li {
+    margin-top: 0.15rem;
+}
+
+/* image hover zoom like other cards */
+@media (prefers-reduced-motion: no-preference) {
+    .spider-card__media img {
+        transition: transform 0.25s ease;
+    }
+
+    .spider-card:hover .spider-card__media img {
+        transform: scale(1.06);
+    }
+}
+
+/* ========================= SPIDER-VERSE VARIANTS ========================= */
+
+/* we still use the same grid class, just modifier */
+.spider-grid--variants {
+    margin-top: 1rem;
+    display: grid;
+    gap: 1.25rem;
+}
+
+/* 1 col mobile, 2 col tablet+, can tweak if you have TONs of cards */
+@media (min-width: 700px) {
+    .spider-grid--variants {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.spider-mini {
+    background: var(--card);
+    border-radius: var(--radius);
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.spider-mini__media {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+}
+
+.spider-mini__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.spider-mini__body {
+    padding: 0.9rem 1rem 1.15rem;
+    font-size: 0.9rem;
+}
+
+.spider-mini__body h3 {
+    margin: 0 0 0.25rem;
+    font-size: 0.95rem;
+}
+
+.spider-mini__meta {
+    margin: 0 0 0.4rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+
+/* slight zoom on hover to match big cards */
+@media (prefers-reduced-motion: no-preference) {
+    .spider-mini__media img {
+        transition: transform 0.25s ease;
+    }
+
+    .spider-mini:hover .spider-mini__media img {
+        transform: scale(1.06);
+    }
+}
+
+/* ========================= MOBILE adjustments ========================= */
+
+@media (max-width: 700px) {
+    .spiders-main {
+        padding-block: 22px 32px;
+    }
+
+    .spiders-hero {
+        padding-block: 18px 14px;
+    }
+
+    .spider-section__header p {
+        font-size: 0.9rem;
+    }
+}

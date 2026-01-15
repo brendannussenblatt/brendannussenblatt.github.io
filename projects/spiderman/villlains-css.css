@@ -1,0 +1,175 @@
+/* =========================Villains page ========================= */
+
+.villains-main {
+    padding-block: 28px 40px;
+}
+
+.villains-hero {
+    padding-block: 24px 18px;
+}
+
+/* Snapshot chips row */
+.villains-snapshot {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2.25rem;
+}
+
+/* Sections */
+.villain-section {
+    margin-block: 2.5rem 0;
+}
+
+.villain-section--secondary {
+    margin-top: 3rem;
+}
+
+.villain-section__header h2 {
+    margin: 0 0 0.35rem;
+    font-size: var(--t-1);
+}
+
+.villain-section__header p {
+    margin: 0 0 1.25rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+/* Sinister Six grid */
+.villain-grid {
+    display: grid;
+    gap: 1.25rem;
+}
+
+@media (min-width: 900px) {
+    .villain-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* Big villain cards */
+.villain-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.villain-card__media {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+}
+
+.villain-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.villain-card__body {
+    padding: 1rem 1.1rem 1.3rem;
+}
+
+.villain-card__tag {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin: 0 0 0.25rem;
+}
+
+.villain-card__name {
+    margin: 0 0 0.3rem;
+    font-size: 1rem;
+}
+
+.villain-card__meta {
+    margin: 0 0 0.5rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+
+.villain-card__text {
+    margin: 0 0 0.6rem;
+    font-size: 0.9rem;
+    color: rgba(234, 241, 249, 0.92);
+}
+
+.villain-card__highlights {
+    margin: 0;
+    padding-left: 1.1rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+.villain-card__highlights li+li {
+    margin-top: 0.15rem;
+}
+
+/* Other villains grid */
+.villain-mini-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+@media (min-width: 720px) {
+    .villain-mini-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* Mini villain cards with images */
+.villain-mini {
+    background: color-mix(in oklab, var(--card) 80%, transparent);
+    border-radius: var(--radius);
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+}
+
+.villain-mini__media {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+}
+
+.villain-mini__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.villain-mini__body {
+    padding: 0.9rem 1rem 1rem;
+}
+
+.villain-mini h3 {
+    margin: 0 0 0.25rem;
+    font-size: 0.95rem;
+}
+
+.villain-mini__meta {
+    margin: 0 0 0.4rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+
+/* Mobile tweaks */
+@media (max-width: 700px) {
+    .villains-main {
+        padding-block: 20px 32px;
+    }
+
+    .villain-grid {
+        grid-template-columns: 1fr;
+    }
+}

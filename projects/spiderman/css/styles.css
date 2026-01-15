@@ -1,0 +1,729 @@
+/* HOME PAGE */
+/* ========== Base / tokens ========== */
+:root {
+    --bg: #0b0f14;
+    --card: #121923;
+    --ink: #eaf1f9;
+    --muted: #9db0c7;
+    --red: #e11d2e;
+    --ring: #86b7ff;
+    --radius: 16px;
+    --shadow: 0 8px 28px rgba(0, 0, 0, .35);
+
+    --t-0: clamp(1rem, .95rem + .3vw, 1.1rem);
+    --t-1: clamp(1.35rem, 1.1rem + .8vw, 1.7rem);
+    --t-2: clamp(2rem, 1.6rem + 2vw, 2.6rem);
+    scroll-behavior: smooth;
+
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    margin: 0;
+    font: 400 var(--t-0)/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    color: var(--ink);
+    background:
+        radial-gradient(900px 500px at 110% 0%, rgba(225, 29, 46, .08), transparent),
+        radial-gradient(900px 500px at 0% 0%, rgba(45, 167, 255, .10), transparent),
+        var(--bg);
+}
+
+img {
+    max-width: 100%;
+    display: block
+}
+
+a {
+    color: inherit;
+    text-decoration: none
+}
+
+.container {
+    max-width: 1100px;
+    margin-inline: auto;
+    padding-inline: 24px
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ========== Header ========== */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(6px) saturate(1.1);
+    background: color-mix(in oklab, #121923 70%, transparent);
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 12px;
+    gap: 12px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    object-fit: cover;
+    display: block;
+    box-shadow: var(--shadow);
+}
+
+.brand-text {
+    font-weight: 700;
+    letter-spacing: .2px
+}
+
+.navlinks {
+    display: flex;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0
+}
+
+.navlinks a {
+    padding: 8px 12px;
+    border-radius: 12px;
+}
+
+.navlinks a:hover,
+.navlinks .current {
+    background: linear-gradient(180deg, rgba(255, 255, 255, .10), rgba(255, 255, 255, .03));
+}
+
+/* ========== Hero ========== */
+.hero {
+    padding-block: 28px 12px;
+}
+
+.hero h1 {
+    font-size: var(--t-2);
+    line-height: 1.1;
+    margin: 0 0 8px;
+}
+
+.subhead {
+    color: var(--muted);
+    margin: 0 0 16px
+}
+
+.cta-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-weight: 700;
+    background: linear-gradient(180deg, var(--red), color-mix(in oklab, var(--red) 62%, #7a0000));
+    color: white;
+    border: 1px solid rgba(255, 255, 255, .14);
+}
+
+.btn.secondary {
+    background: linear-gradient(180deg, rgba(255, 255, 255, .10), rgba(255, 255, 255, .03));
+    color: var(--ink);
+}
+
+:where(a, button):focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 55%, transparent);
+    border-radius: 12px;
+}
+
+/* ========== Footer ========== */
+.footer {
+    margin-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, .08);
+    color: var(--muted);
+    padding-block: 20px 40px;
+}
+
+
+/* ===== Animation ===== */
+@media (prefers-reduced-motion: no-preference) {
+
+    .btn,
+    button {
+        display: inline-block;
+        transition: transform .2s ease, box-shadow .2s ease;
+        transform-origin: center;
+    }
+
+    .btn:hover,
+    button:hover {
+        transform: scale(1.06);
+        box-shadow: 0 8px 22px rgba(0, 0, 0, .25);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+
+    /* keep the image crop clean when it scales */
+    .card .media,
+    .mini-card .mini-media {
+        overflow: hidden;
+    }
+
+    .card .media img,
+    .mini-card .mini-media img {
+        transform: scale(1);
+        /* start state */
+        transition: transform .25s ease;
+        /* smooth zoom */
+        display: block;
+        /* avoid gaps */
+        object-fit: cover;
+        /* safe crop */
+        width: 100%;
+        height: 100%;
+    }
+
+    /* only the image zooms; the card stays still */
+    .card:hover .media img,
+    .mini-card:hover .mini-media img {
+        transform: scale(1.06);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+
+    .card .body p,
+    .mini-card .mini-body p {
+        transition: transform .2s ease;
+    }
+
+    .card:hover .body p,
+    .mini-card:hover .mini-body p {
+        transform: translateX(5px);
+    }
+}
+
+
+/* ===== Decade carousel layout ===== */
+/* #decades {
+    margin-block: 32px 16px;
+    --f-carousel-slide-height: 60%;
+    --f-carousel-gap: 10px;
+
+    height: 200px;
+} */
+
+/* .decade-carousel {
+    margin-top: 1.25rem;
+    --f-carousel-gap: 1.4rem;
+} */
+
+/* .decade-carousel .f-carousel__slide {
+    display: flex;
+    justify-content: center;
+    padding-block: 0.5rem;
+} */
+
+
+.decades-section {
+    margin-block: 32px 24px;
+}
+
+#decades {
+    --f-carousel-gap: 1.4rem;
+    margin-top: 1.25rem;
+}
+
+#decades .f-carousel__slide {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+/* ===== Home: Highlights ===== */
+
+.highlights-section {
+    margin-block: 32px 40px;
+}
+
+.section-intro {
+    margin: 0 0 1rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.highlight-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* image area at top */
+.highlight-card__media {
+    border-bottom: 1px solid rgba(15, 23, 42, 0.9);
+    max-height: 260px;
+    overflow: hidden;
+}
+
+.highlight-card__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* text area */
+.highlight-card__body {
+    padding: 0.9rem 1rem 1.1rem;
+}
+
+.highlight-card__body h3 {
+    margin: 0 0 0.25rem;
+    font-size: 1rem;
+}
+
+.highlight-card__body .meta {
+    margin: 0 0 0.5rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+
+/* optional: same subtle zoom-on-hover as other cards */
+@media (prefers-reduced-motion: no-preference) {
+    .highlight-card__media img {
+        transition: transform 0.25s ease;
+    }
+
+    .highlight-card:hover .highlight-card__media img {
+        transform: scale(1.06);
+    }
+}
+
+
+
+
+
+
+
+
+
+/* ========================= Featured Characters (home page) ========================= */
+
+.featured-characters {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.featured-characters__header h2 {
+    font-size: var(--t-1);
+    margin: 0 0 0.25rem;
+}
+
+.featured-characters__header p {
+    margin: 0 0 1.5rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+    max-width: 40rem;
+}
+
+/* Grid layout */
+.character-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .character-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* Card styles */
+.character-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.character-card__media {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+}
+
+.character-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.character-card__body {
+    padding: 1rem 1.1rem 1.25rem;
+}
+
+.character-card__tag {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin: 0 0 0.25rem;
+}
+
+.character-card__name {
+    font-size: 1rem;
+    margin: 0 0 0.4rem;
+}
+
+.character-card__text {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(234, 241, 249, 0.9);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========== 1960's Page ========== */
+
+
+.era-milestones {
+    margin-top: 3rem;
+    padding-block: 2.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.era-milestones__header {
+    margin-bottom: 1.75rem;
+}
+
+.era-milestones__header h2 {
+    font-size: 1.4rem;
+    margin: 0 0 0.5rem;
+}
+
+.era-milestones__intro {
+    margin: 0;
+    max-width: 42rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+}
+
+/* Main layout: cards + sidebar */
+.era-milestones__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 2.5fr) minmax(0, 1fr);
+    gap: 1.75rem;
+}
+
+/* Milestone cards grid */
+.milestones-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1.25rem;
+}
+
+.milestone-card {
+    background: rgba(15, 23, 42, 0.95);
+    border-radius: 1rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+}
+
+.milestone-card__label {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.7rem;
+    color: #f97373;
+    margin: 0 0 0.35rem;
+}
+
+.milestone-card__title {
+    font-size: 1rem;
+    margin: 0 0 0.35rem;
+}
+
+.milestone-card__meta {
+    margin: 0;
+    font-size: 0.85rem;
+    color: rgba(226, 232, 240, 0.8);
+}
+
+/* Sidebar */
+.milestones-sidebar {
+    background: rgba(15, 23, 42, 0.9);
+    border-radius: 1rem;
+    padding: 1.25rem 1.4rem;
+    border: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.milestones-sidebar__title {
+    margin: 0 0 0.75rem;
+    font-size: 1rem;
+}
+
+.milestones-sidebar__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.milestones-sidebar__list li+li {
+    margin-top: 0.5rem;
+}
+
+/* Mobile stacking */
+@media (max-width: 768px) {
+    .era-milestones__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .milestones-sidebar {
+        order: -1;
+    }
+}
+
+
+
+
+
+
+
+/* ====================== Mobile layout (home) ====================== */
+@media (max-width: 700px) {
+
+    /* Container padding */
+    .container {
+        padding-inline: 16px;
+    }
+
+    /* Header & nav */
+    .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .brand {
+        gap: 8px;
+    }
+
+    .navlinks {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 4px;
+    }
+
+    .navlinks a {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+
+    /* Hero tweaks */
+    .hero {
+        padding-block: 20px 12px;
+    }
+
+    .hero h1 {
+        font-size: var(--t-1);
+    }
+
+    .subhead {
+        font-size: 0.9rem;
+    }
+
+    /* Buttons full-width stacked */
+    .cta-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cta-row .btn,
+    .cta-row .btn.secondary {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Highlights: single column */
+    .highlight-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Decade carousel: card not squished */
+    .decades-section {
+        margin-block: 24px 24px;
+    }
+
+    #decades {
+        margin-top: 0.75rem;
+    }
+
+    /* Featured characters: stack */
+    .featured-characters {
+        margin-top: 24px;
+    }
+
+    .character-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .character-card__body {
+        padding: 0.85rem 0.9rem 1rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* === 1960s snapshot strip === */
+
+
+.era-snapshot {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+    margin-bottom: 2.25rem;
+}
+
+.era-chip {
+    background: rgba(15, 23, 42, 0.9);
+    border-radius: 999px;
+    padding: 0.5rem 0.9rem;
+    border: 1px solid rgba(148, 163, 184, 0.45);
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35rem;
+}
+
+.era-chip__label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(148, 163, 184, 0.9);
+}
+
+.era-chip__value {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #e5e7eb;
+}
+
+/* Comic cover image inside milestone cards */
+
+.milestone-card__cover {
+    margin: -0.25rem -0.25rem 0.75rem;
+    border-radius: 0.9rem;
+    overflow: hidden;
+    border: 1px solid rgba(30, 64, 175, 0.5);
+}
+
+.milestone-card__cover img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
