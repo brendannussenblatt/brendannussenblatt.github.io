@@ -511,3 +511,13 @@ p {
 @media (max-width: 820px) {
   .footer-grid { grid-template-columns: 1fr; }
 }
+
+.hero-subtitle {
+  max-width: 75ch;          /* same readable width as the H1 */
+  font-size: 1.05rem;
+  line-height: 1.65;
+  margin-top: 14px;
+  margin-bottom: 28px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
